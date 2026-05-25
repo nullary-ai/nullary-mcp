@@ -1,0 +1,21 @@
+{
+  "name": "nullary-mcp",
+  "version": "1.0.1",
+  "description": "Public interface for the hosted Nullary MCP server — negative results intelligence for drug discovery.",
+  "mcpName": "ai.nullary/nullary",
+  "homepage": "https://nullary.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nullary-ai/nullary-mcp.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "drug-discovery",
+    "negative-results",
+    "bioactivity",
+    "cheminformatics",
+    "clinical-trials"
+  ]
+}

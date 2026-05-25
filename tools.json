@@ -1,0 +1,1278 @@
+[
+  {
+    "name": "search_inactive_compounds",
+    "description": "Inactive small-molecule compound-target pairs.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_selectivity",
+    "description": "Small molecules that failed selectivity.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_admet_failures",
+    "description": "Small-molecule ADMET failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_guides",
+    "description": "Failed/ineffective CRISPR guides.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_essentiality_screens",
+    "description": "Non-dependency / failed essentiality screens.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_ancestry_specific_failures",
+    "description": "Ancestry-specific CRISPR failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_developability_failures",
+    "description": "Antibody developability failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_clinical_antibodies",
+    "description": "Discontinued/terminated clinical antibodies.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_peptide_therapeutics",
+    "description": "Failed peptide therapeutics.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_peptide_stability_issues",
+    "description": "Peptide stability/half-life failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_protacs",
+    "description": "PROTACs that failed degradation/ternary/permeability.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_protac_e3_issues",
+    "description": "PROTAC E3-ligase recruitment / ternary failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_oligonucleotides",
+    "description": "ASOs/siRNAs that failed engagement/developability.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_oligo_delivery_failures",
+    "description": "Oligonucleotide delivery failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_vaccines",
+    "description": "Failed/terminated vaccines (by pathogen/indication).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "indication": {
+          "type": "string",
+          "description": "disease/indication"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_vaccine_immunogenicity_failures",
+    "description": "Failed vaccine immunogen designs.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_adcs",
+    "description": "ADCs that failed at any stage.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_adc_linker_failures",
+    "description": "ADC failures attributed to linker chemistry.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_bispecifics",
+    "description": "Bispecifics that failed at any stage.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_bispecific_format_failures",
+    "description": "Bispecific format/engineering failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_admet_failures_all_modalities",
+    "description": "ADMET failures across ALL modalities.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_drug_drug_interaction_failures",
+    "description": "Drug-drug interaction failures.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_mechanism_failures",
+    "description": "Approaches that failed for a mechanism (by target).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_failed_replications",
+    "description": "Findings that failed to replicate.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_safety_failures",
+    "description": "Clinical/preclinical safety failures across modalities.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol"
+        },
+        "compound": {
+          "type": "string",
+          "description": "compound name, ChEMBL ID, or InChIKey"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "outcome filter (inactive, failed_safety, terminated, \u2026)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "search_target_history",
+    "description": "ALL failed approaches against a target across every modality.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "UniProt accession or gene symbol (required)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": [
+        "target"
+      ]
+    }
+  },
+  {
+    "name": "search_indication_history",
+    "description": "ALL failed approaches for an indication across every modality.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "indication": {
+          "type": "string",
+          "description": "indication (required)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": [
+        "indication"
+      ]
+    }
+  },
+  {
+    "name": "search_pathogen_history",
+    "description": "Vaccine + antimicrobial + antibody failures for a pathogen.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "pathogen": {
+          "type": "string",
+          "description": "pathogen name (required)"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": [
+        "pathogen"
+      ]
+    }
+  },
+  {
+    "name": "get_compound",
+    "description": "A compound (structure, name, max clinical phase) + its full negative profile across modalities/sources.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "inchi_key": {
+          "type": "string"
+        },
+        "chembl_id": {
+          "type": "string"
+        },
+        "pubchem_cid": {
+          "type": "integer"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "curated",
+            "all"
+          ],
+          "default": "curated",
+          "description": "Confidence tier. 'curated' (default) returns the credible layer; 'all' also includes high-volume screening-grade rows (PubChem HTS inactives, CRISPR non-essential tails)."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "get_finding_provenance",
+    "description": "Full provenance + detail for a single finding by id.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "finding UUID"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "get_target_landscape",
+    "description": "Target 'graveyard' / exhaustion index: how many distinct compounds/agents have been tried against a target and failed, broken down by modality and outcome. Answers 'how picked-over is this target?'. Accepts a gene symbol (e.g. EGFR) or a UniProt accession (e.g. P00533).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "gene symbol or UniProt accession (required)"
+        }
+      },
+      "required": [
+        "target"
+      ]
+    }
+  },
+  {
+    "name": "list_top_targets",
+    "description": "Coverage browse: the most heavily-pursued ('graveyard') targets, ranked by recorded negative findings. Optional family filter (kinase, gpcr, protease, nuclear_receptor, ion_channel, transporter, phosphatase, other).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "type": "string",
+          "description": "target family filter (optional)"
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 25
+        }
+      }
+    }
+  },
+  {
+    "name": "list_models",
+    "description": "Summary of the Layer-1 inactivity-scoring model registry: how many per-target models, split by family, and median scaffold-split ROC-AUC.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_model_card",
+    "description": "Per-target Layer-1 model card: training counts and held-out scaffold-split metrics (ROC-AUC, PR-AUC, Brier, calibration). Accepts a gene symbol (e.g. EGFR) or UniProt accession (e.g. P00533).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "gene symbol or UniProt accession (required)"
+        }
+      },
+      "required": [
+        "target"
+      ]
+    }
+  },
+  {
+    "name": "get_coverage",
+    "description": "Per-modality and per-source coverage stats (honest Phase-1 numbers).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+]
