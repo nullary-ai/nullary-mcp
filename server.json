@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json",
+  "name": "ai.nullary/nullary",
+  "description": "Negative results intelligence for drug discovery — query measured failures via MCP.",
+  "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/nullary-ai/nullary-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.nullary.ai/mcp"
+    }
+  ]
+}
