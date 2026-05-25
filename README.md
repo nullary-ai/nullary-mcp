@@ -100,6 +100,7 @@ model registry.
 - **Coverage:** https://nullary.ai/coverage
 - **Research:** https://nullary.ai/research
 - **MCP Registry:** listed as `ai.nullary/nullary`
+- **Smithery:** https://smithery.ai/badge/nullary/drug-discovery
 
 ## License
 
